@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className="dark scroll-smooth">
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-background flex flex-col justify-between relative bg-grid-pattern">
+      <body className="min-h-screen bg-obsidian-vault text-foreground antialiased selection:bg-accent selection:text-background flex flex-col justify-between relative selection:text-black">
         <CartProvider>
           <AnalyticsScripts />
           <Navbar />

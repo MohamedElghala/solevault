@@ -16,7 +16,7 @@ export function Navbar({ cartCount }: NavbarProps) {
   const displayCount = typeof cartCount === 'number' ? cartCount : totalCount;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-white/8 bg-[#07070A]/85 backdrop-blur-2xl shadow-2xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Logo */}

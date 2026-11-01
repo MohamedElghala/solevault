@@ -44,10 +44,10 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
         return (
           <article
             key={product.id}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-500 hover:border-accent/80 hover:shadow-2xl hover:-translate-y-1.5"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/10 bg-[#0E0E14]/75 backdrop-blur-2xl transition-all duration-500 hover:border-accent/40 hover:bg-[#14141C]/90 hover:shadow-[0_25px_60px_rgba(0,0,0,0.85)] hover:-translate-y-1.5"
           >
             {/* Image */}
-            <Link href={`/products/${product.slug}`} className="relative aspect-[4/3] w-full overflow-hidden bg-surface-elevated block">
+            <Link href={`/products/${product.slug}`} className="relative aspect-[4/3] w-full overflow-hidden bg-[#181822]/40 block">
               <Image
                 src={product.images[0]}
                 alt={product.title}
@@ -58,6 +58,9 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
 
               {/* Badges */}
               <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end z-10">
+                <span className="rounded-full bg-black/80 border border-white/20 backdrop-blur-md px-2.5 py-1 text-[10px] font-mono font-black text-white tracking-wider uppercase shadow-lg">
+                  ✓ VERIFIED
+                </span>
                 {product.is_trending && (
                   <span className="rounded-full bg-accent px-3 py-1 text-[11px] font-black text-background shadow-md">
                     🔥 الأكثر طلباً
@@ -72,22 +75,30 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
             {/* Details */}
             <div className="flex flex-col p-6 flex-grow justify-between space-y-4">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-accent">
-                  {product.brand}
-                </span>
+                {/* Brand & Cairo Stock Scarcity */}
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black font-mono tracking-widest text-accent uppercase">
+                    {product.brand}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span>متبقي 3 في القاهرة</span>
+                  </span>
+                </div>
+
                 <Link href={`/products/${product.slug}`}>
-                  <h3 className="mt-1 text-lg font-bold text-foreground group-hover:text-accent transition-colors">
+                  <h3 className="mt-2 text-lg font-black text-white group-hover:text-accent transition-colors">
                     {product.title}
                   </h3>
                 </Link>
-                <p className="mt-2 text-xs leading-relaxed text-muted line-clamp-2">
+                <p className="mt-2 text-xs leading-relaxed text-muted/90 line-clamp-2">
                   {product.description}
                 </p>
 
                 {/* Features list */}
-                <div className="mt-4 space-y-1.5 border-t border-border/60 pt-4">
+                <div className="mt-4 space-y-1.5 border-t border-white/8 pt-4">
                   {product.features.slice(0, 2).map((feature, i) => (
-                    <div key={i} className="flex items-center gap-2 text-[11px] text-muted">
+                    <div key={i} className="flex items-center gap-2 text-[11px] text-muted font-medium">
                       <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0" />
                       <span className="truncate">{feature}</span>
                     </div>
@@ -95,7 +106,7 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
                 </div>
 
                 {/* Quick Size Picker */}
-                <div className="mt-4 border-t border-border/60 pt-3">
+                <div className="mt-4 border-t border-white/8 pt-3">
                   <div className="flex items-center justify-between text-xs mb-1.5">
                     <span className="text-muted font-bold">المقاس:</span>
                     <span className="text-accent font-black">مقاس {currentSize}</span>
@@ -109,7 +120,7 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
                         className={`py-1 text-xs font-bold rounded-lg transition-all ${
                           currentSize === sz
                             ? 'bg-accent text-background font-black shadow-sm'
-                            : 'border border-border bg-background text-muted hover:border-accent hover:text-foreground'
+                            : 'border border-white/10 bg-white/[0.03] text-muted hover:border-accent hover:text-white'
                         }`}
                       >
                         {sz}
@@ -120,13 +131,13 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
               </div>
 
               {/* Pricing and Actions */}
-              <div className="mt-4 border-t border-border/80 pt-4 space-y-3">
+              <div className="mt-4 border-t border-white/8 pt-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xl font-black text-foreground">
+                    <span className="text-xl font-black text-white">
                       {formatPrice(product.sale_price)} ج.م
                     </span>
-                    <span className="block text-xs line-through text-muted">
+                    <span className="block text-xs line-through text-muted/60">
                       {formatPrice(product.base_price)} ج.م
                     </span>
                   </div>
@@ -135,7 +146,7 @@ export function ProductCatalog({ products }: ProductCatalogProps) {
                     href={`/products/${product.slug}`}
                     className="text-xs font-bold text-accent hover:underline flex items-center gap-1"
                   >
-                    <span>صفحة الكوتشي</span>
+                    <span>تفاصيل أكثر</span>
                     <span>←</span>
                   </Link>
                 </div>
