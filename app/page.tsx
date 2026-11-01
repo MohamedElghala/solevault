@@ -5,6 +5,7 @@ import { ArrowLeft, Star, ShieldCheck, Zap, Flame, CheckCircle2, Sparkles, Trend
 import { INITIAL_PRODUCTS } from '@/lib/mock-data';
 import { CinematicShoeViewer } from '@/components/CinematicShoeViewer';
 import { ProductCatalog } from '@/components/ProductCatalog';
+import { HomepageInteractiveSections } from '@/components/HomepageInteractiveSections';
 import { formatPrice } from '@/lib/utils';
 
 export default function HomePage() {
@@ -303,7 +304,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. URGENT CALL TO ACTION BANNER */}
+      {/* 7. EXPANDED INTERACTIVE SECTIONS (FIT FINDER + QUALITY MATRIX + FAQ + VIP WHATSAPP) */}
+      <HomepageInteractiveSections />
+
+      {/* 8. URGENT CALL TO ACTION BANNER */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-r from-surface-elevated via-surface to-surface-elevated p-10 sm:p-14 text-center glow-accent">
           <div className="mx-auto max-w-2xl space-y-4">

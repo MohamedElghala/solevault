@@ -213,9 +213,9 @@ export default function ProductLandingPage({
       />
 
       {/* 1. TOP URGENCY NOTIFICATION BAR */}
-      <div className="sticky top-20 z-40 bg-accent text-background px-4 py-2.5 text-center text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-lg backdrop-blur-md">
+      <div className="w-full border-b border-accent/40 bg-accent text-background px-4 py-2.5 text-center text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-md">
         <Flame className="h-4 w-4 shrink-0 animate-bounce" />
-        <span>عرض خاص لفترة محدودة: وفر 700 جنيه + معاينة العلبة وقياس الكوتشي قبل الدفع!</span>
+        <span>عرض خاص لفترة محدودة: وفر {product.base_price - product.sale_price} جنيه + معاينة العلبة وقياس الكوتشي قبل الدفع!</span>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
@@ -230,25 +230,25 @@ export default function ProductLandingPage({
         </div>
 
         {/* MAIN PRODUCT HERO SECTION */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
+        <div className="grid grid-cols-1 gap-8 lg:gap-14 lg:grid-cols-12 items-start">
           
           {/* LEFT: IMAGE GALLERY (6 Cols) */}
           <div className="lg:col-span-6 space-y-4">
             
             {/* Main Image */}
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-surface-elevated to-surface shadow-2xl group">
+            <div className="relative aspect-square w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-[#161620] to-[#0A0A0E] shadow-2xl group">
               <Image
                 src={product.images[activeImageIndex]}
                 alt={product.title}
                 fill
                 priority
                 className="object-cover object-center transition-all duration-500 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 600px"
+                sizes="(max-width: 1024px) 100vw, 650px"
               />
               <div className="absolute top-4 right-4 rounded-full bg-danger px-3.5 py-1 text-xs font-black text-white shadow-lg">
                 وفر {product.base_price - product.sale_price} جنيه اليوم
               </div>
-              <div className="absolute top-4 left-4 rounded-full bg-background/80 backdrop-blur-md border border-white/10 px-3 py-1 text-[11px] font-bold text-accent">
+              <div className="absolute top-4 left-4 rounded-full bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1 text-[11px] font-bold text-accent">
                 ✨ خامات ماستر كواليتي
               </div>
             </div>
@@ -701,6 +701,26 @@ export default function ProductLandingPage({
           </div>
         </div>
 
+      </div>
+
+      {/* MOBILE STICKY BOTTOM BUY BAR */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 p-3.5 bg-[#09090D]/95 border-t border-white/10 backdrop-blur-2xl flex items-center justify-between gap-3 shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
+        <div>
+          <span className="block text-[10px] text-muted font-bold">إجمالي السعر:</span>
+          <span className="text-lg font-black text-accent">{formatPrice(product.sale_price)} ج.م</span>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            const formEl = document.querySelector('form');
+            if (formEl) formEl.scrollIntoView({ behavior: 'smooth' });
+            else addItem(product, selectedSize, quantity);
+          }}
+          className="flex-1 flex items-center justify-center gap-2 rounded-2xl bg-accent py-3 px-4 text-xs font-black text-background shadow-lg glow-accent active:scale-95"
+        >
+          <ShoppingBag className="h-4 w-4" />
+          <span>اطلب الآن (مقاس {selectedSize})</span>
+        </button>
       </div>
 
     </div>

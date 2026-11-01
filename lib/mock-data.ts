@@ -3,7 +3,7 @@ import { Product, InventoryItem, Order, FinancialSummary } from '@/types';
 export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-1',
-    title: 'Air Phantom Edge "Ghost Black"',
+    title: 'Air Phantom Edge — Ghost Black',
     slug: 'air-phantom-edge-ghost-black',
     brand: 'SOLEVAULT LAB',
     description: 'كوتشي هجين مصمم خصيصاً ليجمع بين راحة المشي الرياضية والفخامة الحضرية. نعل أوسط ممتص للصدمات بتقنية Air Cushioning المزدوجة مع خامات جلدية وشبك تنفسي مقاوم للتآكل.',
@@ -25,7 +25,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-2',
-    title: 'Apex Runner "Neon Pulse"',
+    title: 'Apex Runner — Neon Pulse',
     slug: 'apex-runner-neon-pulse',
     brand: 'SOLEVAULT LAB',
     description: 'إصدار الجري الحصري بلمسات الفسفوري النيون Electric Lime. خفة وزن مذهلة مع استجابة ارتدادية فائقة لكل خطوة.',
@@ -45,7 +45,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-3',
-    title: 'Shadow Vault "Retro Cream"',
+    title: 'Shadow Vault — Retro Cream',
     slug: 'shadow-vault-retro-cream',
     brand: 'SOLEVAULT ARCHIVE',
     description: 'كلاسيكية الثمانينات معالجة بروح معاصرة. درجات البيج الكريمي الفاخر مع لمسات الجلد الطبيعي المعتق.',
