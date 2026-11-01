@@ -49,16 +49,6 @@ export function Navbar({ cartCount }: NavbarProps) {
         {/* Right Action Icons */}
         <div className="flex items-center gap-3">
           
-          {/* Admin Dashboard Link */}
-          <Link
-            href="/admin/login"
-            className="hidden items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-semibold text-muted transition-colors hover:border-accent hover:text-accent lg:flex"
-            title="لوحة تحكم الإدارة الآمنة"
-          >
-            <ShieldCheck className="h-4 w-4 text-accent" />
-            <span>لوحة الإدارة</span>
-          </Link>
-
           {/* WhatsApp Support */}
           <a
             href="https://wa.me/201000000000?text=مرحباً%20سول%20فولت،%20عندي%20استفسار%20عن%20كوتشي"
@@ -146,14 +136,6 @@ export function Navbar({ cartCount }: NavbarProps) {
               className="py-2 text-muted hover:text-accent"
             >
               سياسة الاستبدال والاسترجاع
-            </Link>
-            <Link
-              href="/admin/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 pt-4 border-t border-border text-accent"
-            >
-              <ShieldCheck className="h-4 w-4" />
-              <span>دخول الإدارة (المصادقة الثنائية 2FA)</span>
             </Link>
           </nav>
         </div>

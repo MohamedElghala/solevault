@@ -88,11 +88,6 @@ export function Footer() {
                   سياسة الاسترجاع والاستبدال
                 </Link>
               </li>
-              <li>
-                <Link href="/admin/login" className="transition-colors hover:text-accent">
-                  لوحة تحكم الإدارة (2FA)
-                </Link>
-              </li>
             </ul>
           </div>
 
